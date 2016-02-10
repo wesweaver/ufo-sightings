@@ -1,17 +1,24 @@
 <html>
-<head></head>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
 <body>
 
 <div id="pieChart"></div>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.4/d3.min.js"></script>
-<script src="/lib/d3pie.min.js"></script>
+<script src="d3pie.min.js"></script>
 <script>
+
+var ww = ($(window).width() - ($(window).width() * .15));
+
+var wh = ($(window).height() - ($(window).height() * .15));
+
 var pie = new d3pie("pieChart", {
 	"header": {
 		"title": {
 			"text": "Reports by State",
-			"fontSize": 24,
+			"fontSize": 14,
 			"font": "helvetica"
 		},
 		"subtitle": {
@@ -30,8 +37,8 @@ var pie = new d3pie("pieChart", {
 		"location": "bottom-left"
 	},
 	"size": {
-		"canvasHeight": 420,
-		"canvasWidth": 450,
+		"canvasHeight": wh,
+		"canvasWidth": ww,
 		"pieOuterRadius": "88%"
 	},
 	"data": {
@@ -61,21 +68,24 @@ var pie = new d3pie("pieChart", {
 	},
 	"labels": {
 		"outer": {
-			"pieDistance": 32
+			"format": "none",
+			"pieDistance": 13
 		},
 		"inner": {
+			"format": "label-percentage2",
 			"hideWhenLessThanPercentage": 3
 		},
 		"mainLabel": {
-			"fontSize": 11
+			"color": "#c0c0c0",
+			"fontSize": 10
 		},
 		"percentage": {
-			"color": "#ffffff",
+			"color": "D0D0D0",
 			"decimalPlaces": 0
 		},
 		"value": {
-			"color": "#adadad",
-			"fontSize": 11
+			"color": "#EAEAEA",
+			"fontSize": 10
 		},
 		"lines": {
 			"enabled": true
